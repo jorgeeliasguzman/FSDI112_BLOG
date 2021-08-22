@@ -15,30 +15,48 @@
     </head>
     <body>
         <header>
+        <!--
+            <div class="nav-left">
+                <h1><a href="{% url 'home' %}"> Django Blog</a></h1>
+            </div>
+            <div class="nav-right">
+                <h1><a href="{% url 'home' %}"> Django Blog</a></h1>
+            </div>
+        -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{% url 'home' %}">
                         <img src="/static/images/NavBarLogo.png" alt="" width="60" height="48">
                     </a>
                     <a class="navbar-brand" href="{% url 'home' %}">MY BLOG APP</a>
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </div>
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link" aria-current="page" href="{% url 'post_new' %}"> New Blog Post</a>
+                        </div>
                     </div>
                 </div>
             </nav>
         </header>
+        <div class="login-container">
+            {% if user.is_authenticated %}
+                <p>Hi, {{ user.username }}</p>
+                <a href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+                <p> You are not logged in.</p>
+                <a href="{% url 'login' %}">Log In</a>
+            {% endif %}
+        </div>
             <div class="content-container">
                     {% block content %}
                     {% endblock content %}

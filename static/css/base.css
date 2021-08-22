@@ -26,6 +26,7 @@ hr{
 
 .post-entry h3 {
     margin: .5rem 0;
+    font-size: .75rem;
 }
 .post-entry h3 a {
     color: rgb(40, 0, 40);
@@ -39,16 +40,19 @@ hr{
     text-decoration: overline;
     color: navy;
 }
+.login-container{
+    display: inline-flex;
+}
 
 
 
 
 
 
-.navbar-brand{
+.navbar-brand a{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding-left: 0.5rem;
-
+    font-size: 2rem;
 }
 header h1 a {
     color: rgb(40, 0, 40);
